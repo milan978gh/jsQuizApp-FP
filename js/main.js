@@ -33,4 +33,31 @@ const quizData = [
   },
 ];
 
+const questionEl = document.getElementById('question');
+const a_text = document.getElementById('a_text');
+const b_text = document.getElementById('b_text');
+const c_text = document.getElementById('c_text');
+const d_text = document.getElementById('d_text');
+const submitBtn = document.getElementById('submit');
+let currentQuiz = 0;
 
+
+loadQuiz();
+
+function loadQuiz() {
+  const currentQuizData = quizData[currentQuiz];
+  questionEl.textContent = currentQuizData.question;
+  a_text.textContent = currentQuizData.a;
+  b_text.textContent = currentQuizData.b;
+  c_text.textContent = currentQuizData.c;
+  d_text.textContent = currentQuizData.d;
+}
+
+submitBtn.addEventListener('click', () => {
+  currentQuiz++;
+  if (currentQuiz < quizData.length) {
+    loadQuiz();
+  } else {
+
+  }
+});
